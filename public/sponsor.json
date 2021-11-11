@@ -1,0 +1,44 @@
+[
+    {
+        "_id": 1,
+        "name": "Owlet smart best one company",
+        "price": 250,
+        "rating": 5,
+        "img": "https://i.ibb.co/NyfP2bx/sponsor6.jpg"
+    },
+    {
+        "_id": 2,
+        "name": "Owlet smart best one company",
+        "price": 250,
+        "rating": 4,
+        "img": "https://i.ibb.co/DRCf9qq/sponsor5.jpg"
+    },
+    {
+        "_id": 3,
+        "name": "Hubble smart best one company",
+        "price": 450,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/Yy77hQX/sponsor4.jpg"
+    },
+    {
+        "_id": 4,
+        "name": "Rika smart best one company",
+        "price": 575,
+        "rating": 5,
+        "img": "https://i.ibb.co/pRNryVL/sponsor3.png"
+    },
+    {
+        "_id": 5,
+        "name": "Kairu smart best one company",
+        "price": 350,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/xhKsDN4/sponsor2.png"
+    },
+    {
+        "_id": 6,
+        "name": "Hubblet smart best one company",
+        "price": 250,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/74VfWTM/sponsor1.png"
+    }
+]
