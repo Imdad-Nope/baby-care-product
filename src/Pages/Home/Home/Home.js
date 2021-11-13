@@ -7,7 +7,7 @@ import SponsorItems from '../SponsorItems/SponsorItems';
 const Home = () => {
     return (
         <div>
-            <Navigation></Navigation>
+            {/* <Navigation></Navigation> */}
             <Banner></Banner>
             <BabyLotions></BabyLotions>
             <SponsorItems></SponsorItems>

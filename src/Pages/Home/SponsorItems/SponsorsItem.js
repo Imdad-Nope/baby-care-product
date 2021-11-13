@@ -35,8 +35,8 @@ const SponsorsItem = ({ sponsor }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button variant="contained">Add to cart</Button>
-
+                    <Link to="/explore"> <Button variant="contained">Add to cart</Button>
+                    </Link>
                     {/* <Button size="small">Learn More</Button> */}
                 </CardActions>
             </Card>

@@ -1,9 +1,9 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Grid, Rating, Typography, Button } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BabysLotion = ({ lotion }) => {
-    const { price, name, _id, rating, img } = lotion;
+const ExploreProduct = ({ product }) => {
+    const { name, _id, img, rating, price } = product;
     return (
         <Grid item xs={4} sm={4} md={4}>
             <Card sx={{ minWidth: 275, border: 0, boxShadow: '12, 12, 2, 1, rgba(0, 0, 255, .2)' }}>
@@ -29,19 +29,19 @@ const BabysLotion = ({ lotion }) => {
                         {rating}
 
                     </Typography>
-                    <Typography variant="caption">
+                    <Typography variant="caption" spacing={2} component="div">
                         <Link>4 days shipping</Link>
 
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/purchase/${_id}`}><Button variant="contained">Add to cart</Button></Link>
-
+                    <Link to="/home"><Button variant="contained">Purchase</Button></Link>
                     {/* <Button size="small">Learn More</Button> */}
                 </CardActions>
+
             </Card>
-        </Grid>
+        </Grid >
     );
 };
 
-export default BabysLotion;
+export default ExploreProduct;

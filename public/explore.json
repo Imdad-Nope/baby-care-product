@@ -1,0 +1,65 @@
+[
+    {
+        "_id": 7,
+        "name": "Mururu baby lotion with oil free",
+        "price": 50,
+        "rating": 5,
+        "img": "https://i.ibb.co/719G0H0/explore9.jpg"
+    },
+    {
+        "_id": 8,
+        "name": "Owlet smart best one company",
+        "price": 70,
+        "rating": 4,
+        "img": "https://i.ibb.co/0shYLcF/explore8.jpg"
+    },
+    {
+        "_id": 9,
+        "name": "Purple fragrance best one lotion",
+        "price": 90,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/28sRb3c/explore7.jpg"
+    },
+    {
+        "_id": 10,
+        "name": "Pretty baby's safe lotion",
+        "price": 75,
+        "rating": 5,
+        "img": "https://i.ibb.co/bWwTB3s/explore6.jpg"
+    },
+    {
+        "_id": 11,
+        "name": "Infant lotion fragrance coconuts oil",
+        "price": 65,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/jGRTWR8/explore5.jpg"
+    },
+    {
+        "_id": 12,
+        "name": "Hubblet smart best one company",
+        "price": 250,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/rpGwQCS/explore4.jpg"
+    },
+    {
+        "_id": 13,
+        "name": "John's cutest and best infant lotion",
+        "price": 40,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/Jrhf3Wd/explore3.jpg"
+    },
+    {
+        "_id": 14,
+        "name": "Child lotion with alovera extract",
+        "price": 90,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/VYZ8dDP/explore2.jpg"
+    },
+    {
+        "_id": 15,
+        "name": "Baby lotion with dovour amla oil",
+        "price": 80,
+        "rating": 4.5,
+        "img": "https://i.ibb.co/cDHxKtH/explore1.jpg"
+    }
+]
