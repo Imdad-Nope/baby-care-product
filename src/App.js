@@ -11,6 +11,8 @@ import ExploreProducts from './Pages/ExploreProducts/ExploreProducts/ExploreProd
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import OrderProducts from './Pages/Home/orderProducts/OrderProducts';
+import YourProducts from './Pages/Shop/YourProducts/YourProducts';
+import Purchases from './Pages/Shop/YourProduct/Purchase/Purchases';
 
 function App() {
   return (
@@ -31,14 +33,20 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <Route path="/explore">
+            <PrivateRoute path="/explore">
               <ExploreProducts></ExploreProducts>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute exact path="/purchase/:purchaseId">
               <OrderProducts></OrderProducts>
             </PrivateRoute>
             <Route path="/form">
               <BabysForm></BabysForm>
+            </Route>
+            <PrivateRoute exact path="/shop">
+              <YourProducts></YourProducts>
+            </PrivateRoute>
+            <Route path="/purchase">
+              <Purchases></Purchases>
             </Route>
           </Switch>
           <Footer></Footer>

@@ -1,11 +1,14 @@
+import { Box, Button, Card, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
+import Alert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Login = () => {
-    const { signInUsingGoogle, setUser, logInUsingEmailAndPassword, setIsLoading } = useAuth();
+    const { signInUsingGoogle, setUser, logInUsingEmailAndPassword, setIsLoading, isLoading, user, authError, setAuthError } = useAuth();
     const history = useHistory();
     const location = useLocation();
 
@@ -29,22 +32,21 @@ const Login = () => {
     }
 
 
-    const handleRegistration = e => {
+    const handleLogin = e => {
+        setIsLoading(true)
         e.preventDefault()
-        logInUsingEmailAndPassword(email, password).then((res) => {
-
-            setIsLoading(true)
-            setUser(res.user)
-            sessionStorage.setItem("email", res.user.email);
-            history.push(uri)
-        })
+        logInUsingEmailAndPassword(email, password)
+            .then((res) => {
+                setAuthError('')
+                setUser(res.user)
+                sessionStorage.setItem("email", res.user.email);
+                history.push(uri)
+            })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+
+                setAuthError(error.message)
             })
-            .finally(() => {
-                setIsLoading(false)
-            })
+            .finally(() => setIsLoading(false))
     };
 
     const handleGoogleSign = () => {
@@ -57,27 +59,58 @@ const Login = () => {
             .catch((error) => {
                 console.log(error)
             })
-            .finally(() => {
-                setIsLoading(false)
-            })
+            .finally(() => setIsLoading(false))
     }
     return (
-        <div className="babys-data mt-5">
-            <form onSubmit={handleRegistration}>
 
-                <input onBlur={handleEmail} type="email" name="" id="" placeholder="Email" />
+        <Container>
+            <Box sx={{ flexGrow: 1, mt: 5 }}>
+                <Card>
+                    <Grid spacing={2} sx={{ m: 2 }}>
+                        <Typography variant="h6" gutterBottom component="div">
+                            Login
+                        </Typography>
+                        {!isLoading && <Grid item xs={12}>
+                            <form onSubmit={handleLogin}>
+                                <TextField
+                                    sx={{
+                                        width: '35ch',
+                                        m: 1
+                                    }}
+                                    id="standard-email-input"
+                                    label="Email"
+                                    type="email"
+                                    onBlur={handleEmail}
+                                    variant="standard"
+                                />
+                                <Grid item={12} >
+                                    <TextField
+                                        sx={{
+                                            width: '35ch',
+                                            m: 1
+                                        }}
+                                        id="standard-password-input"
+                                        label="Password"
+                                        type="password"
+                                        onBlur={handlePassword}
+                                        variant="standard"
+                                    />
+                                </Grid>
+                                <Button type='submit' sx={{ width: '38ch', m: 1 }} variant='contained'>Submit</Button>
+                            </form>
+                        </Grid>}
+                        {isLoading && <CircularProgress />}
+                        {user?.email && <Alert severity="success">Login Successfully</Alert>}
+                        {authError && <Alert severity="error">{authError}</Alert>}
+                        <Link to='/register' style={{ m: 2, textDecoration: 'none' }}>
+                            <Button variant='text'>Did not have an account? Please register</Button>
+                        </Link>
+                    </Grid>
+                </Card>
+                <Button sx={{ m: 1 }} variant='contained' onClick={handleGoogleSign}>Google Sign In</Button>
+            </Box>
+        </Container >
 
-                <input onBlur={handlePassword} type="password" name="" id="" placeholder="Password" />
-                <input type="submit" />
-            </form>
-            <div>
-                <span className="text-danger"> Didn'nt create account yet? </span>
-                <Link to="/register"><button className="bg-light">Register</button></Link>
-            </div>
-            <br />
-            <button onClick={handleGoogleSign}>Google Sign In</button>
-
-        </div>
     );
 };
 

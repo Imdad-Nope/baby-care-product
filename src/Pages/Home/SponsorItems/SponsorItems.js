@@ -18,7 +18,7 @@ const SponsorItems = () => {
             <Box sx={{ flexGrow: 1 }} className="bg-gray">
                 <hr />
                 <Container>
-                    <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" className="text-success">
+                    <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" className="text-info">
                         Sponsored Craved Items
                     </Typography>
                     <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

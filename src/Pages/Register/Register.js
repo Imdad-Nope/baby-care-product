@@ -1,10 +1,11 @@
+import { Alert, Box, Button, Card, CardContent, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../Hooks/useAuth';
 
 const Register = () => {
-    const { signInUsingGoogle, setUser, signInUsingEmail, setIsLoading, updateName } = useAuth();
+    const { signInUsingGoogle, setUser, signInUsingEmail, setIsLoading, updateName, isLoading, user, authError, setAuthError } = useAuth();
     const history = useHistory();
     const location = useLocation();
 
@@ -28,9 +29,11 @@ const Register = () => {
 
 
     const handleRegistration = e => {
+        setIsLoading(true)
         e.preventDefault()
         signInUsingEmail(email, password)
             .then((res) => {
+                setAuthError('')
                 sessionStorage.setItem("email", res.user.email);
                 setIsLoading(true)
                 updateName(name)
@@ -40,17 +43,16 @@ const Register = () => {
                 history.push(uri)
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
+
+                setAuthError(error.message);
+
             })
-            .finally(() => {
-                setIsLoading(false)
-            })
+            .finally(() => setIsLoading(false))
     };
 
 
     const handleGoogleSignIn = () => {
+        setIsLoading(true)
         signInUsingGoogle().then(res => {
             sessionStorage.setItem("email", res.user.email);
             setIsLoading(true)
@@ -60,27 +62,83 @@ const Register = () => {
             .catch((error) => {
                 console.log(error)
             })
-            .finally(() => {
-                setIsLoading(false)
-            })
+            .finally(() => setIsLoading(false))
     }
     return (
-        <div className="babys-data mt-5">
-            <form onSubmit={handleRegistration}>
-                <input onBlur={handleName} placeholder="Name" />
-                <input onBlur={handleEmail} type="email" name="" id="" placeholder="Email" />
+        <Container>
+            <Box sx={{ flexGrow: 1, mt: 5 }}>
+                <Card>
+                    <CardContent>
+                        <Grid item xs={12}>
+                            < Grid spacing={2}>
+                                <Typography variant="h6" gutterBottom component="div">
+                                    Register
+                                </Typography>
+                                {!isLoading && <form onSubmit={handleRegistration}>
+                                    <TextField
+                                        sx={{
+                                            m: 1,
+                                            width: '35ch'
+                                        }}
+                                        id="standard-name-input"
+                                        label="Name"
+                                        type="name"
+                                        onBlur={handleName}
+                                        variant="standard"
+                                    />
 
-                <input onBlur={handlePassword} type="password" name="" id="" placeholder="Password" />
-                <input type="submit" />
-            </form>
-            <div>
-                <span className="text-success"> Alreday have an account?</span>
-                <Link to="/login"> <button className="bg-light">Login</button></Link>
-            </div>
-            <br />
-            <button onClick={handleGoogleSignIn}>Google Sign In</button>
+                                    <Grid item={12}>
+                                        <TextField
+                                            sx={{
+                                                m: 1,
+                                                width: '35ch'
+                                            }}
+                                            id="standard-email-input"
+                                            label="Email"
+                                            type="email"
+                                            onBlur={handleEmail}
+                                            variant="standard"
+                                        />
+                                    </Grid>
+                                    <Grid item={12}>
+                                        <TextField
+                                            sx={{
+                                                m: 1,
+                                                width: '35ch'
+                                            }}
 
-        </div>
+                                            id="standard-password-input"
+                                            label="Password"
+                                            type="password"
+                                            onBlur={handlePassword}
+                                            variant="standard"
+                                        />
+                                    </Grid>
+                                    <Button variant='contained' sx={{
+                                        m: 1,
+                                        width: '38ch'
+                                    }} type='submit'>Submit</Button>
+                                </form>}
+                                {isLoading && <CircularProgress />}
+                                {user?.email && <Alert severity="success">Registerd successfully!</Alert>}
+                                {authError && <Alert severity="error">{authError}</Alert>}
+
+                                <Link style={{
+                                    m: 1,
+                                    width: '35ch',
+                                    textDecoration: 'none'
+                                }} to="/login">
+                                    <Button variant='text'>Alreday have an account? Please login</Button>
+                                </Link>
+
+                            </Grid>
+                            {/* <Button sx={{ width: '35ch' }} variant='contained' onClick={handleGoogleSignIn}>Google sign In</Button> */}
+                        </Grid>
+                    </CardContent>
+                </Card>
+            </Box>
+        </Container >
+
     );
 };
 

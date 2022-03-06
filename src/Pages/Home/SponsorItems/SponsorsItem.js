@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const SponsorsItem = ({ sponsor }) => {
     const { name, price, rating, img, _id } = sponsor;
     return (
-        <Grid item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: '18, 18, 8, 6, rgba(0, 0, 255, .2)' }}>
+        <Grid item xs={4} sm={4} md={4} className="sponsor">
+            <Card sx={{ minWidth: 275, border: 0, boxShadow: '18, 18, 8, 6, rgba(0, 0, 255, .2)' }} style={{ backgroundColor: '#45C68C' }}>
                 <CardMedia
                     component="img"
                     style={{ width: 'auto', height: '150px', margin: '0 auto' }}

@@ -1,12 +1,14 @@
-import { Card, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Card, CardContent, CardMedia, Container, Grid, Rating, Typography, CardActions, Button, Box, TextareaAutosize } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import Comments from './Comments/Comments';
 
 const OrderProducts = () => {
     const { purchaseId } = useParams()
     const [purchase, setPurchase] = useState({});
+
     const email = sessionStorage.getItem("email");
 
     useEffect(() => {
@@ -32,58 +34,60 @@ const OrderProducts = () => {
         console.log(data)
     }
     return (
-        <div className="babys-data mt-5">
+        <Container sx={{ mt: 5 }}>
+            <Card>
+                <Grid item xs={12}>
+                    <form onSubmit={handleSubmit}>
+                        <CardContent
+                            sx={{
+                                alignItems: 'center',
+                                textAlign: 'left'
+                            }}
+                        >
+                            <Typography variant="h6" component="div">
+                                <img
+                                    style={{ width: '20%' }}
+                                    src={purchase.img} alt="" />
+                            </Typography>
+                            <Typography variant="h6" component="div">
+                                <span>Price: $</span> <small>{purchase?.price}</small>
+                            </Typography>
+                            <Typography variant="h6">
+                                Name: {purchase.name}
+                            </Typography>
+                            <Typography variant="body2">
 
+                                <Rating name="size-small" defaultValue={2} size="small" />
+                                {purchase.rating}
 
-            <Grid item xs={4} sm={4} md={4}>
-                <Card sx={{ minWidth: 275, border: 0, boxShadow: '12, 12, 2, 1, rgba(0, 0, 255, .2)' }}>
-                    <CardMedia
-                        component="img"
-                        style={{ width: 'auto', height: '150px', margin: '0 auto' }}
-                        image={purchase?.img} />
-                    <CardContent
-                        sx={{
-                            alignItems: 'center',
-                            textAlign: 'left'
-                        }}
-                    >
-                        <Typography variant="h6" component="div">
-                            <span>Price: $</span> <small>{purchase?.price}</small>
-                        </Typography>
-                        <Typography variant="h6">
-                            Name: {purchase?.name}
-                        </Typography>
-                        <Typography variant="body2">
-
-                            <Rating name="size-small" defaultValue={2} size="small" />
-                            {purchase?.rating}
-
-                        </Typography>
-                        <Typography variant="caption">
-                            <Link>4 days shipping</Link>
-
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-
-            {/* <div>
-                <img src={purchase?.img} alt="" />
-                <h6>Name: {purchase?.name}</h6>
-                <span>Price: {purchase?.price}</span>
-            </div> */}
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("name", { required: true, maxLength: 120 })} defaultValue={purchase?.name} placeholder="Name" />
-                <input {...register("rating", { required: true, maxLength: 20 })} placeholder="Rating" />
-
-                <input type="number" {...register("price")} defaultValue={purchase?.price} placeholder="Price" />
-                <input {...register("img")} defaultValue={purchase?.img} placeholder="Image url" />
-                <input type="submit" />
-            </form>
-
-        </div>
+                            </Typography>
+                            <Typography variant="caption">
+                                <Link>4 days shipping</Link>
+                            </Typography>
+                            <CardActions>
+                                <Link to="/purchase"><Button variant="contained">Approve</Button></Link>
+                            </CardActions>
+                        </CardContent>
+                    </form>
+                </Grid>
+                <Grid item={12} sx={{
+                    // alignItems: 'center',
+                    textAlign: 'left',
+                    margin: '20px'
+                }}>
+                    <Typography variant="h6" component="div">
+                        Customer Reviews:
+                    </Typography>
+                    <Comments></Comments>
+                    {/* <TextareaAutosize
+                        aria-label="minimum height"
+                        minRows={3}
+                        placeholder="Minimum 3 rows"
+                        style={{ width: 200 }}
+                    /> */}
+                </Grid>
+            </Card>
+        </Container>
     );
 };
 

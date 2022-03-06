@@ -1,17 +1,23 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './BabyLotion.css'
 
 const BabysLotion = ({ lotion }) => {
     const { price, name, _id, rating, img } = lotion;
     return (
-        <Grid item xs={4} sm={4} md={4}>
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: '12, 12, 2, 1, rgba(0, 0, 255, .2)' }}>
+        <Grid item xs={4} sm={4} md={4} className="ok" >
+            <Card sx={{ minWidth: 275, border: 0, boxShadow: '12, 12, 2, 1, rgba(0, 0, 255, .2)' }} style={{ backgroundColor: '#99C645' }}>
+
                 <CardMedia
+                    className="pika active animated operator"
                     component="img"
                     style={{ width: 'auto', height: '150px', margin: '0 auto' }}
-                    image={img} />
+                    image={img}
+                />
+
                 <CardContent
+                    // className="pika active animated operator"
                     sx={{
                         alignItems: 'center',
                         textAlign: 'left'
@@ -35,12 +41,12 @@ const BabysLotion = ({ lotion }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to={`/purchase/${_id}`}><Button variant="contained">Add to cart</Button></Link>
+                    <Link to={`/purchase/${_id}`} className="inside-page__btn inside-page__btn--city"><Button variant="contained" >Add to cart</Button></Link>
 
                     {/* <Button size="small">Learn More</Button> */}
                 </CardActions>
             </Card>
-        </Grid>
+        </Grid >
     );
 };
 

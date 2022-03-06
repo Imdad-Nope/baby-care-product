@@ -9,7 +9,7 @@ const BabysForm = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        axios.post('http://localhost:5000/lotions', data)
+        axios.post('https://mysterious-reaches-80060.herokuapp.com/lotions', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Submitted successfully')
