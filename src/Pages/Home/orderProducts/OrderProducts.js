@@ -65,7 +65,7 @@ const OrderProducts = () => {
                                 <Link>4 days shipping</Link>
                             </Typography>
                             <CardActions>
-                                <Link to="/purchase"><Button variant="contained">Approve</Button></Link>
+                                <Link to="/payment"><Button variant="contained">Approve</Button></Link>
                             </CardActions>
                         </CardContent>
                     </form>

@@ -1,15 +1,13 @@
 import React from 'react';
 import { Box, Container, Typography, Card } from '@mui/material';
-import CardContent from '@mui/material/CardContent';
 
 const Purchases = () => {
     return (
-        <Container sx={{ width: '100%', maxWidth: 1000, mt: 5 }}>
-
-            <Typography variant="h2" component="div" gutterBottom>
+        <div>
+            <Typography sx={{ fontWeight: 600, m: 5, color: 'white' }} variant="h4" component="div">
                 Development Pending:
             </Typography>
-        </Container >
+        </div>
     );
 };
 

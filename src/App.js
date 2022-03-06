@@ -13,6 +13,7 @@ import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import OrderProducts from './Pages/Home/orderProducts/OrderProducts';
 import YourProducts from './Pages/Shop/YourProducts/YourProducts';
 import Purchases from './Pages/Shop/YourProduct/Purchase/Purchases';
+import Payment from './Pages/Home/Payment/Payment';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
             </PrivateRoute>
             <Route path="/purchase">
               <Purchases></Purchases>
+            </Route>
+            <Route path="/payment">
+              <Payment></Payment>
             </Route>
           </Switch>
           <Footer></Footer>

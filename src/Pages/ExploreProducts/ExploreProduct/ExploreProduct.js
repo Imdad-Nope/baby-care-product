@@ -35,7 +35,7 @@ const ExploreProduct = ({ product }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Link to="/home"><Button variant="contained">Purchase</Button></Link>
+                    <Link to="/purchase"><Button variant="contained">Purchase</Button></Link>
                 </CardActions>
 
             </Card>
