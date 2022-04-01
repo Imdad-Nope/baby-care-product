@@ -48,7 +48,7 @@ const Navigation = () => {
                         <Link className='btn-5' to="/shop" style={{ textDecoration: 'none', color: 'white' }}>Shop</Link>
                         {user?.email ? <Button onClick={logOut} style={{ textDecoration: 'none', color: 'white' }}>Logout</Button>
                             :
-                            <Link className='btn-5' to="/login"><Button style={{ textDecoration: 'none', color: 'white' }}>Login</Button></Link>}
+                            <Link className='btn-5' to="/login" ><Button style={{ textDecoration: 'none', color: 'white' }}>Login</Button></Link>}
 
                     </Stack>
 
