@@ -1,19 +1,64 @@
 import React from 'react';
+import { Button, Container, Grid, Typography } from '@mui/material';
 import './Footer.css'
 
 const Footer = () => {
     return (
-        <div className="footer-section mt-5">
-            <span className="text-white" > All Departments are here</span>
-            <br />
-            <br />
-            <span className="text-white" >Contact us: 012545</span>
-            <br />
-            <br />
-            <p><small className="text-white">The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.</small></p>
-            <hr />
-            <small className="text-white ">© 2021 BabyLotion.com All rights reserved.</small>
-        </div>
+        <>
+            <div style={{ background: '#c6dfe9', padding: '5%' }} className='footerMain'>
+                <Container>
+                    <Grid>
+                        <Grid container>
+                            <Grid item xs={12} sm={4}>
+                                <Typography gutterBottom variant="h4" fontWeight='700' component="div" sx={{ color: 'GrayText', mb: 8 }} align='left'>
+                                    Baby Care
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle1" component="div" sx={{ mb: 6 }} align='left'>
+                                    We always try to help you for your healthy life.
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle2" component="div" align='left'>
+                                    All right reserved by @Alauddin
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={4} >
+                                <Typography gutterBottom variant="subtitle1" component="div" sx={{ color: 'GrayText', my: 2 }} className='menu'>
+                                    Home
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle1" component="div" sx={{ color: 'GrayText', my: 2 }} className='menu'>
+                                    Service
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle1" component="div" sx={{ color: 'GrayText', my: 2 }} className='menu'>
+                                    Contact Us
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle1" component="div" sx={{ color: 'GrayText', my: 2 }} className='menu'>
+                                    About Us
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} sm={4}>
+                                <Typography gutterBottom variant="h5" fontWeight='700' component="div" sx={{ color: 'GrayText', mb: 6 }} align='left'>
+                                    Sign up for news letter.
+                                </Typography>
+
+                                <input
+
+                                    className='textField'
+                                    placeholder='Type your email'
+                                    type="text"
+                                    required
+                                />
+                                <Button
+                                    className='btn'
+                                    variant="outlined">Contact us</Button>
+
+
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+
+                </Container>
+            </div>
+        </>
     );
 };
 

@@ -1,15 +1,13 @@
 import React from 'react';
 import { Box } from '@mui/system';
-import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { ButtonGroup, CardMedia, Container, Grid, IconButton } from '@mui/material';
+import { ButtonGroup, Grid, IconButton } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import './YourProduct.css';
-import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 
 const theme = createTheme({
@@ -24,7 +22,7 @@ const theme = createTheme({
 
 const YourProduct = ({ item }) => {
     const { name, img, description, price } = item;
-    const { user } = useAuth();
+    // const { user } = useAuth();
 
     const approve = e => {
         e.preventDefault()
@@ -35,8 +33,8 @@ const YourProduct = ({ item }) => {
         alert('File Deleted Successfully')
     }
     return (
-        <Box sx={{ flexGrow: 2, mt: 4 }} >
-            <Grid container spacing={3}>
+        <Box sx={{ flexGrow: 2, mb: 4 }} >
+            <Grid container spacing={3} sx={{ mt: 8 }}>
                 <Grid item xs={12} md={4} className="hover03">
                     <figure>
                         <img

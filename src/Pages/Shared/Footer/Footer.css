@@ -1,26 +1,18 @@
-.footer-section{
-    background-color: #004f9a;
-}
-.footer-section hr {
-border: none;
-height: 2px;
-color: white; 
-text-align: center;
-}
-.footer-section text {
-text-align: center;
-}
-.separator{
-display:flex;
-align-items: center;
+.textField {
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+
 }
 
-.separator .line{
-height: 1px;
-flex: 1;
-background-color: rgb(255, 253, 253);
+.footerMain .btn:hover {
+    background: aquamarine;
+    color: #333;
 }
 
-.separator h2{
-padding: 0 2rem;
+.menu:hover {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Grid, Rating, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './BabyLotion.css'
@@ -6,18 +6,17 @@ import './BabyLotion.css'
 const BabysLotion = ({ lotion }) => {
     const { price, name, _id, rating, img } = lotion;
     return (
-        <Grid item xs={4} sm={4} md={4} className="ok" >
-            <Card sx={{ minWidth: 275, border: 0, boxShadow: '12, 12, 2, 1, rgba(0, 0, 255, .2)' }} style={{ backgroundColor: '#99C645' }}>
 
-                <CardMedia
-                    className="pika active animated operator"
-                    component="img"
-                    style={{ width: 'auto', height: '150px', margin: '0 auto' }}
-                    image={img}
+
+        <Grid item xs={4} sm={4} md={4} className="ok" >
+            <Card style={{ backgroundColor: '#fff', width: '80%' }} >
+
+                <img src={img} alt=""
+                    width='100px'
                 />
 
                 <CardContent
-                    // className="pika active animated operator"
+
                     sx={{
                         alignItems: 'center',
                         textAlign: 'left'
@@ -36,17 +35,21 @@ const BabysLotion = ({ lotion }) => {
 
                     </Typography>
                     <Typography variant="caption">
-                        <Link>4 days shipping</Link>
+                        4 days shipping
 
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Link to={`/purchase/${_id}`} className="inside-page__btn inside-page__btn--city"><Button variant="contained" >Add to cart</Button></Link>
+                <CardActions className='lotion'>
+                    <Link to={`/purchase/${_id}`} className='btnL'>
+                        <Button variant="text" className='btnL'>Add to cart</Button>
+                    </Link>
 
-                    {/* <Button size="small">Learn More</Button> */}
+
                 </CardActions>
             </Card>
         </Grid >
+
+
     );
 };
 

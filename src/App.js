@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
@@ -14,6 +14,7 @@ import OrderProducts from './Pages/Home/orderProducts/OrderProducts';
 import YourProducts from './Pages/Shop/YourProducts/YourProducts';
 import Purchases from './Pages/Shop/YourProduct/Purchase/Purchases';
 import Payment from './Pages/Home/Payment/Payment';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -28,13 +29,16 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
             <Route exact path="/login">
               <Login></Login>
             </Route>
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute path="/explore">
+            <PrivateRoute path="/product">
               <ExploreProducts></ExploreProducts>
             </PrivateRoute>
             <PrivateRoute exact path="/purchase/:purchaseId">

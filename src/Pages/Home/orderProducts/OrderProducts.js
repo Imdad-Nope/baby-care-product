@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardMedia, Container, Grid, Rating, Typography, CardActions, Button, Box, TextareaAutosize } from '@mui/material';
+import { Card, CardContent, Container, Grid, Rating, Typography, CardActions, Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';

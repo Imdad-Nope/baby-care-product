@@ -1,60 +1,71 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-import Stack from '@mui/material/Stack';
 import useAuth from '../../Hooks/useAuth';
 import Button from '@mui/material/Button';
-import './Navigation.css';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DrawerComp from './DrawerComp';
+import { Grid, useMediaQuery, useTheme } from '@mui/material';
 
 
 
 const Navigation = () => {
+    const [value, setValue] = React.useState();
+
     const { user, logOut } = useAuth();
+
+    const theme = useTheme();
+    const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+        <React.Fragment>
+            <AppBar sx={{ background: '#063970' }}>
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Babys World
-                    </Typography>
-                    <Typography variant="body2" component="div" sx={{ flexGrow: 1 }}>
-                        Signed in as: {user.email}
-
-                    </Typography>
-                    <Typography variant="body2" component="div" sx={{ flexGrow: 1 }}>
-                        Name: {user?.displayName}
-                    </Typography>
-                    <Stack spacing={2} direction="row" >
-                        <Link className='btn-5' to="/home" style={{ textDecoration: 'none', color: 'white' }}>
-                            Home
-                        </Link>
-                        <Link className='btn-5' to="/explore" style={{ textDecoration: 'none', color: 'white' }}>
-                            Explore Products
-                        </Link>
-                        <Link className='btn-5' to="/shop" style={{ textDecoration: 'none', color: 'white' }}>Shop</Link>
-                        {user?.email ? <Button onClick={logOut} style={{ textDecoration: 'none', color: 'white' }}>Logout</Button>
+                    <ShoppingCartIcon />
+                    {
+                        isMatch ? (
+                            <>
+                                <Typography sx={{ fontSize: '1.5rem', pl: '10%' }}>
+                                    Baby Care
+                                </Typography>
+                                <DrawerComp />
+                            </>
+                        )
                             :
-                            <Link className='btn-5' to="/login" ><Button style={{ textDecoration: 'none', color: 'white' }}>Login</Button></Link>}
+                            (
+                                <>
 
-                    </Stack>
+                                    <Tabs value={value} onChange={(e, value) => setValue(value)} indicatorColor='secondary' sx={{ ml: 'auto' }}>
+                                        <Tab label='Home' component={Link} to='/home' style={{ color: 'white' }} />
+                                        <Tab label='Product' component={Link} to='/product' style={{ color: 'white' }} />
+                                        <Tab label='Shop' component={Link} to='/shop' style={{ color: 'white' }} />
+                                        <Tab label='About Us' component={Link} to='/about' style={{ color: 'white' }} />
+                                    </Tabs>
+
+                                    <Grid sx={{ ml: 'auto' }} className='navigation'>
+                                        <Tabs sx={{ alignItems: 'center', }}>
+                                            {user?.email ?
+                                                <Button className='btnS' variant='outline' onClick={logOut} sx={{ ml: 'auto' }}>Sign Out</Button>
+                                                :
+                                                <Link style={{ textDecoration: 'none', }} to='/login'>
+                                                    <Button className='btnS' variant='outline'>Sign In</Button>
+                                                </Link>
+                                            }
+                                        </Tabs>
+                                    </Grid>
+                                </>
+                            )
+                    }
+
 
                 </Toolbar>
+
             </AppBar>
-        </Box >
+        </React.Fragment>
     );
 };
 

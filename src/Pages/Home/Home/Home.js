@@ -1,10 +1,8 @@
 import React from 'react';
-import Navigation from '../../Shared/Navigation/Navigation';
 import BabyLotions from '../BabyLotions/BabyLotions';
 import Banner from '../Banner/Banner';
+import BannerSecond from '../BannerSecond/BannerSecond';
 import CustomerReviews from '../CustomerReviews/CustomerReviews';
-import SponsorItems from '../SponsorItems/SponsorItems';
-
 const Home = () => {
     return (
         <div>
@@ -12,7 +10,7 @@ const Home = () => {
             <Banner></Banner>
             <BabyLotions></BabyLotions>
             <CustomerReviews></CustomerReviews>
-            <SponsorItems></SponsorItems>
+            <BannerSecond />
         </div>
     );
 };

@@ -4,10 +4,12 @@
 	-webkit-transition: .6s ease-in-out;
 	transition: .6s ease-in-out;
 }
+
 .hover03 figure:hover img {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
+
 figure {
 	width: 300px;
 	height: 200px;
@@ -16,19 +18,30 @@ figure {
 	background: rgb(#AEDC5C);
 	overflow: hidden;
 }
+
 figure:hover+span {
 	bottom: -36px;
 	opacity: 1;
-};
+}
+
+;
+
 .ex2:hover,
-.ex2:active {font-size: 150%};
+.ex2:active {
+	font-size: 150%
+}
+
+;
+
 .draw-border {
 	box-shadow: inset 0 0 0 4px #58afd1;
 	color: #58afd1;
 	transition: color 0.25s 0.0833333333s;
 	position: relative;
-  }
-  .draw-border::before, .draw-border::after {
+}
+
+.draw-border::before,
+.draw-border::after {
 	border: 0 solid transparent;
 	box-sizing: border-box;
 	content: "";
@@ -38,36 +51,43 @@ figure:hover+span {
 	height: 0;
 	bottom: 0;
 	right: 0;
-	
-  }
-  .draw-border::before {
+
+}
+
+.draw-border::before {
 	border-bottom-width: 4px;
 	border-left-width: 4px;
-  }
-  .draw-border::after {
+}
+
+.draw-border::after {
 	border-top-width: 4px;
 	border-right-width: 4px;
-  }
-  .draw-border:hover {
+}
+
+.draw-border:hover {
 	color: #ffe593;
-	
-  }
-  .draw-border:hover::before, .draw-border:hover::after {
+
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
 	border-color: #ffe593;
 	transition: border-color 0s, width 0.25s, height 0.25s;
 	width: 100%;
 	height: 100%;
-	
-  }
-  .draw-border:hover::before {
-	transition-delay: 0s, 0s, 0.25s;
-  }
-  .draw-border:hover::after {
-	transition-delay: 0s, 0.25s, 0s;
-  }
-  
 
-  .btn {
+}
+
+.draw-border:hover::before {
+	transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+	transition-delay: 0s, 0.25s, 0s;
+}
+
+
+.btn {
 	background: none;
 	border: none;
 	cursor: pointer;
@@ -75,15 +95,50 @@ figure:hover+span {
 	font: 700 1.2rem "Roboto Slab", sans-serif;
 	padding: 1em 2em;
 	letter-spacing: 0.05rem;
-  }
-  .btn:focus {
+}
+
+.btn:focus {
 	outline: 2px dotted #55d7dc;
-  }
-  
-  body {
-	background: #937ead;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-  }
+}
+
+
+/* For DrawerCom */
+
+.btnD {
+	margin: 10px;
+	/* padding: 10px; */
+	color: #32a86f;
+	text-decoration: none;
+}
+
+/* For Lotion in */
+.lotion .btnL {
+	color: white;
+	transition: 0.4s;
+	background: salmon;
+	text-decoration: none;
+}
+
+.lotion .btnL:hover {
+	background: aqua;
+	transform: scale(1.05);
+	color: black;
+}
+
+/* for Navigation */
+
+.navigation .btnS {
+	color: white;
+	transition: 0.4s;
+	background: salmon;
+}
+
+.navigation .btnS:hover {
+	background: aqua;
+	transform: scale(1.05);
+	color: black;
+}
+
+body {
+	background: #F5F5F5;
+}

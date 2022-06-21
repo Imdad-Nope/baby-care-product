@@ -3,9 +3,9 @@ import React from 'react';
 
 const Payment = () => {
     return (
-        <div>
-            <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" className="text-warning">
-                Payment Coming Soon:
+        <div >
+            <Typography sx={{ fontWeight: 600, mt: 10 }} variant="h4" component="div" className="text-warning">
+                Payment Is Coming Soon:
             </Typography>
         </div>
     );

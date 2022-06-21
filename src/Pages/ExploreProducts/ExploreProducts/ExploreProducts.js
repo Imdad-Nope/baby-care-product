@@ -19,8 +19,8 @@ const ExploreProducts = () => {
             <img style={{ width: '100%', height: '550px' }} src={coverBaby} alt="" />
             <BabyLotions></BabyLotions>
             <Container>
-                <Typography sx={{ fontWeight: 600, m: 5 }} variant="h4" component="div" className="text-info">
-                    Help Baby Feel Their Best
+                <Typography sx={{ fontWeight: 600, m: 5, color: 'yellowgreen' }} variant="h4" component="div">
+                    Help Your Baby To Feel Their Best
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {
