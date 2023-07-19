@@ -5,7 +5,7 @@ const Purchases = () => {
     return (
         <div>
             <Typography sx={{ fontWeight: 600, m: 5, color: 'white' }} variant="h4" component="div">
-                Development Pending:
+                Files are coming soon:
             </Typography>
         </div>
     );
