@@ -8,7 +8,7 @@ import BabysLotion from './BabysLotion';
 const BabyLotions = () => {
     const [lotions, setLotions] = useState([]);
     useEffect(() => {
-        fetch('https://mysterious-reaches-80060.herokuapp.com/lotions')
+        fetch('https://baby-products-server.onrender.com/lotions')
             .then(res => res.json())
             .then(data => setLotions(data))
     }, []);

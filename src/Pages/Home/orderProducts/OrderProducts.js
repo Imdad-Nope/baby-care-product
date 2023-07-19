@@ -12,7 +12,7 @@ const OrderProducts = () => {
     const email = sessionStorage.getItem("email");
 
     useEffect(() => {
-        fetch(`https://mysterious-reaches-80060.herokuapp.com/purchasingProducts/${purchaseId}`)
+        fetch(`https://baby-products-server.onrender.com/purchasingProducts/${purchaseId}`)
             .then(res => res.json())
             .then(data => setPurchase(data))
     }, [])
@@ -21,7 +21,7 @@ const OrderProducts = () => {
     const onSubmit = data => {
         data.email = email;
 
-        fetch('https://mysterious-reaches-80060.herokuapp.com/purchasing', {
+        fetch('https://baby-products-server.onrender.com/purchasing', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
