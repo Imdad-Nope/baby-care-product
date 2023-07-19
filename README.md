@@ -1,6 +1,6 @@
 # Babys Care Products
 
-Live Link [baby-care-products-site](https://babys-care-products.firebaseapp.com/).
+Live Link [baby-care-products-site](https://heuristic-brattain-74b953.netlify.app/).
 
 ## I have used here
 
