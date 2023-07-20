@@ -28,7 +28,7 @@ const BabysForm = () => {
                 <input type="submit" />
             </form>
             <Link to="/home"><Button variant="contained" color="success">
-                Back home
+                Go home
             </Button>
             </Link>
         </div>
